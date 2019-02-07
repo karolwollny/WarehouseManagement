@@ -1,4 +1,6 @@
 # WarehouseManagement
+
 Program wykonany w ramach zajęć projektowych z przedmiotu Bazy Danych 2
-##WSPÓŁAUTOR: 
+## WSPÓŁAUTOR: 
+
 Kamil Kamyszek https://github.com/Kamyyylo
