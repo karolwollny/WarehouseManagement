@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="warehousemanagement" default="all">
+  
+  
+  <property file="warehousemanagement.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.ojdbc6.classpath">
+    <pathelement location="${basedir}/../../../../../oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module WarehouseManagement -->
+  
+  <dirname property="module.warehousemanagement.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.warehousemanagement" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.warehousemanagement" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.warehousemanagement" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.warehousemanagement" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="warehousemanagement.output.dir" value="${module.warehousemanagement.basedir}/out/production/WarehouseManagement"/>
+  <property name="warehousemanagement.testoutput.dir" value="${module.warehousemanagement.basedir}/out/test/WarehouseManagement"/>
+  
+  <path id="warehousemanagement.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="warehousemanagement.module.production.classpath">
+    <path refid="${module.jdk.classpath.warehousemanagement}"/>
+    <pathelement location="${basedir}/../../../../../Program Files/Java/mysql-connector-java-5.1.46-bin.jar"/>
+    <path refid="library.ojdbc6.classpath"/>
+  </path>
+  
+  <path id="warehousemanagement.runtime.production.module.classpath">
+    <pathelement location="${warehousemanagement.output.dir}"/>
+    <pathelement location="${basedir}/../../../../../Program Files/Java/mysql-connector-java-5.1.46-bin.jar"/>
+    <path refid="library.ojdbc6.classpath"/>
+  </path>
+  
+  <path id="warehousemanagement.module.classpath">
+    <path refid="${module.jdk.classpath.warehousemanagement}"/>
+    <pathelement location="${warehousemanagement.output.dir}"/>
+    <pathelement location="${basedir}/../../../../../Program Files/Java/mysql-connector-java-5.1.46-bin.jar"/>
+    <path refid="library.ojdbc6.classpath"/>
+  </path>
+  
+  <path id="warehousemanagement.runtime.module.classpath">
+    <pathelement location="${warehousemanagement.testoutput.dir}"/>
+    <pathelement location="${warehousemanagement.output.dir}"/>
+    <pathelement location="${basedir}/../../../../../Program Files/Java/mysql-connector-java-5.1.46-bin.jar"/>
+    <path refid="library.ojdbc6.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.warehousemanagement">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.warehousemanagement">
+    <patternset refid="excluded.from.module.warehousemanagement"/>
+  </patternset>
+  
+  <path id="warehousemanagement.module.sourcepath">
+    <dirset dir="${module.warehousemanagement.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.warehousemanagement" depends="compile.module.warehousemanagement.production,compile.module.warehousemanagement.tests" description="Compile module WarehouseManagement"/>
+  
+  <target name="compile.module.warehousemanagement.production" depends="register.custom.compilers" description="Compile module WarehouseManagement; production classes">
+    <mkdir dir="${warehousemanagement.output.dir}"/>
+    <javac2 destdir="${warehousemanagement.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.warehousemanagement}/javac">
+      <compilerarg line="${compiler.args.warehousemanagement}"/>
+      <bootclasspath refid="warehousemanagement.module.bootclasspath"/>
+      <classpath refid="warehousemanagement.module.production.classpath"/>
+      <src refid="warehousemanagement.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.warehousemanagement"/>
+    </javac2>
+    
+    <copy todir="${warehousemanagement.output.dir}">
+      <fileset dir="${module.warehousemanagement.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.warehousemanagement.tests" depends="register.custom.compilers,compile.module.warehousemanagement.production" description="compile module WarehouseManagement; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.warehousemanagement" description="cleanup module">
+    <delete dir="${warehousemanagement.output.dir}"/>
+    <delete dir="${warehousemanagement.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.warehousemanagement" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.warehousemanagement" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

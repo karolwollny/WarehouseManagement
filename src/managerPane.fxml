@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="managerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1568.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManagerController">
+   <children>
+      <Button layoutX="613.0" layoutY="775.0" mnemonicParsing="false" onAction="#previousPane" prefHeight="39.0" prefWidth="918.0" text="Wyloguj" />
+      <Button fx:id="closeButton" layoutX="1531.0" layoutY="-3.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="39.0" prefWidth="37.0" text="x">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Label layoutX="15.0" layoutY="13.0" text="Zarządzanie produktami">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="43.0" text="ID:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="71.0" prefHeight="40.0" prefWidth="132.0" text="Nazwa: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="104.0" text="Cena netto: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="134.0" prefHeight="30.0" prefWidth="60.0" text="Tax ID:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="164.0" prefHeight="30.0" prefWidth="80.0" text="Ilość: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="200.0" prefHeight="30.0" prefWidth="85.0" text="Budynek:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="product_IDTextField" layoutX="39.0" layoutY="46.0" prefHeight="25.0" prefWidth="85.0" />
+      <TextField fx:id="productNameTextField" layoutX="79.0" layoutY="79.0" prefHeight="25.0" prefWidth="85.0" />
+      <TextField fx:id="netPriceTextField" layoutX="117.0" layoutY="107.0" prefHeight="25.0" prefWidth="82.0" />
+      <TextField fx:id="tax_IDTextField" layoutX="80.0" layoutY="137.0" prefHeight="25.0" prefWidth="82.0" />
+      <TextField fx:id="amountTextField" layoutX="62.0" layoutY="167.0" prefHeight="25.0" prefWidth="80.0" />
+      <TextField fx:id="building_IDTextField" layoutX="96.0" layoutY="203.0" prefHeight="25.0" prefWidth="80.0" />
+      <Button fx:id="addProductButton" disable="true" layoutX="7.0" layoutY="255.0" mnemonicParsing="false" onAction="#addNewProduct" prefHeight="30.0" prefWidth="60.0" text="Dodaj" />
+      <Button fx:id="deleteProductButton" disable="true" layoutX="69.0" layoutY="255.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="30.0" prefWidth="60.0" text="Usuń" />
+      <Button fx:id="updateProductButton" disable="true" layoutX="131.0" layoutY="255.0" mnemonicParsing="false" onAction="#updateProduct" prefHeight="30.0" prefWidth="60.0" text="Nadpisz" />
+      <RadioButton fx:id="addProductRadioButton" layoutX="29.0" layoutY="237.0" mnemonicParsing="false" onAction="#productRadioButtonsActions">
+         <toggleGroup>
+            <ToggleGroup fx:id="produkty" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="deleteRadioProductButton" layoutX="92.0" layoutY="237.0" mnemonicParsing="false" onAction="#productRadioButtonsActions" toggleGroup="$produkty" />
+      <RadioButton fx:id="updateProductRadioButton" layoutX="151.0" layoutY="237.0" mnemonicParsing="false" onAction="#productRadioButtonsActions" toggleGroup="$produkty" />
+      <TableView fx:id="productTableView" layoutX="238.0" layoutY="44.0" onMouseClicked="#fillInTextFieldsProducts" prefHeight="239.0" prefWidth="366.0">
+         <columns>
+            <TableColumn fx:id="col_productID" prefWidth="25.0" text="ID" />
+            <TableColumn fx:id="col_productName" prefWidth="82.0" text="Nazwa" />
+            <TableColumn fx:id="col_netPrice" prefWidth="76.0" text="Cena netto" />
+            <TableColumn fx:id="col_taxID" prefWidth="57.0" text="Tax ID" />
+            <TableColumn fx:id="col_amount" prefWidth="63.0" text="Ilość" />
+            <TableColumn fx:id="col_building" prefWidth="59.0" text="Budynek" />
+         </columns>
+      </TableView>
+      <Label layoutX="15.0" layoutY="326.0" text="ID: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="353.0" text="Nazwa: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="383.0" text="ID Adresu:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="building_IDTextField1" layoutX="43.0" layoutY="327.0" prefHeight="25.0" prefWidth="80.0" />
+      <TextField fx:id="buildingNameTextField" layoutX="78.0" layoutY="354.0" prefHeight="25.0" prefWidth="80.0" />
+      <TextField fx:id="address_IDTextFieldBuilding" layoutX="106.0" layoutY="384.0" prefHeight="25.0" prefWidth="80.0" />
+      <TableView fx:id="buildingTableView" layoutX="238.0" layoutY="299.0" onMouseClicked="#filinTextFieldsBuildings" prefHeight="170.0" prefWidth="366.0">
+         <columns>
+            <TableColumn fx:id="col_buildingID" prefWidth="27.0" text="ID" />
+            <TableColumn fx:id="col_buildingName" prefWidth="74.0" text="Nazwa" />
+            <TableColumn fx:id="col_buildingAddress" prefWidth="173.0" text="Adres" />
+         </columns>
+      </TableView>
+      <Button fx:id="addBuildingButton" disable="true" layoutX="7.0" layoutY="436.0" mnemonicParsing="false" onAction="#addBuilding" prefHeight="30.0" prefWidth="60.0" text="Dodaj" />
+      <Button fx:id="deleteBuildingButton" disable="true" layoutX="69.0" layoutY="436.0" mnemonicParsing="false" onAction="#deleteBuilding" prefHeight="30.0" prefWidth="60.0" text="Usuń" />
+      <Button fx:id="updateBuildingButton" disable="true" layoutX="131.0" layoutY="436.0" mnemonicParsing="false" onAction="#updateBuilding" prefHeight="30.0" prefWidth="60.0" text="Nadpisz" />
+      <Label layoutX="15.0" layoutY="511.0" text="ID: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="541.0" text="Adres: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="address_IDTextField" layoutX="47.0" layoutY="514.0" prefHeight="25.0" prefWidth="69.0" />
+      <TextField fx:id="addressTextField" layoutX="75.0" layoutY="544.0" prefHeight="25.0" prefWidth="154.0" />
+      <TableView fx:id="addressTableView" layoutX="238.0" layoutY="473.0" onMouseClicked="#filInTextFieldsAddresses" prefHeight="156.0" prefWidth="366.0">
+         <columns>
+            <TableColumn fx:id="col_addressID" prefWidth="48.800048828125" text="ID" />
+            <TableColumn fx:id="col_address" prefWidth="308.0" text="Address" />
+         </columns>
+      </TableView>
+      <Button fx:id="addAddressButton" disable="true" layoutX="7.0" layoutY="605.0" mnemonicParsing="false" onAction="#addAddress" prefHeight="30.0" prefWidth="60.0" text="Dodaj" />
+      <Button fx:id="deleteAddressButton" disable="true" layoutX="69.0" layoutY="605.0" mnemonicParsing="false" onAction="#deleteAddress" prefHeight="30.0" prefWidth="60.0" text="Usuń" />
+      <Button fx:id="updateAddressButton" disable="true" layoutX="131.0" layoutY="605.0" mnemonicParsing="false" onAction="#updateAddress" prefHeight="30.0" prefWidth="60.0" text="Nadpisz" />
+      <Label layoutX="15.0" layoutY="291.0" text="Zarządzanie Budynkami">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="474.0" text="Zarządzanie Adresami">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="addBuildingRadioButton" layoutX="29.0" layoutY="417.0" mnemonicParsing="false" onAction="#buildingRadioButtonsActions">
+         <toggleGroup>
+            <ToggleGroup fx:id="budynki" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="updateBuildingRadioButton" layoutX="153.0" layoutY="417.0" mnemonicParsing="false" onAction="#buildingRadioButtonsActions" toggleGroup="$budynki" />
+      <RadioButton fx:id="addAddressRadioButton" layoutX="29.0" layoutY="579.0" mnemonicParsing="false" onAction="#addressRadioButtonsActions">
+         <toggleGroup>
+            <ToggleGroup fx:id="adresy" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="updateAddressRadioButton" layoutX="154.0" layoutY="579.0" mnemonicParsing="false" onAction="#addressRadioButtonsActions" toggleGroup="$adresy" />
+      <RadioButton fx:id="deleteAddressRadioButton" layoutX="92.0" layoutY="579.0" mnemonicParsing="false" onAction="#addressRadioButtonsActions" toggleGroup="$adresy" />
+      <RadioButton fx:id="deleteBuildingRadioButton" layoutX="92.0" layoutY="417.0" mnemonicParsing="false" onAction="#buildingRadioButtonsActions" toggleGroup="$budynki" />
+      <Label layoutX="15.0" layoutY="643.0" text="Zarządzanie Podatkami">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="673.0" text="ID:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="706.0" text="Wartość: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="736.0" text="Opis: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="taxIDTextField1" layoutX="44.0" layoutY="676.0" prefHeight="25.0" prefWidth="69.0" />
+      <TextField fx:id="valueTaxTextField" layoutX="94.0" layoutY="709.0" prefHeight="25.0" prefWidth="85.0" />
+      <TextField fx:id="descriptionTaxTextField" layoutX="64.0" layoutY="739.0" prefHeight="25.0" prefWidth="154.0" />
+      <RadioButton fx:id="updateTaxRadioButton" layoutX="154.0" layoutY="766.0" mnemonicParsing="false" onAction="#taxRadioButtonsActions">
+         <toggleGroup>
+            <ToggleGroup fx:id="podatki" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="deleteTaxRadioButton" layoutX="92.0" layoutY="766.0" mnemonicParsing="false" onAction="#taxRadioButtonsActions" toggleGroup="$podatki" />
+      <RadioButton fx:id="addTaxRadioButton" layoutX="29.0" layoutY="766.0" mnemonicParsing="false" onAction="#taxRadioButtonsActions" toggleGroup="$podatki" />
+      <Button fx:id="addTaxButton" disable="true" layoutX="7.0" layoutY="789.0" mnemonicParsing="false" onAction="#addTax" prefHeight="30.0" prefWidth="60.0" text="Dodaj" />
+      <Button fx:id="deleteTaxButton" disable="true" layoutX="69.0" layoutY="789.0" mnemonicParsing="false" onAction="#deleteTax" prefHeight="30.0" prefWidth="60.0" text="Usuń" />
+      <Button fx:id="updateTaxButton" disable="true" layoutX="131.0" layoutY="789.0" mnemonicParsing="false" onAction="#updateTax" prefHeight="30.0" prefWidth="60.0" text="Nadpisz" />
+      <TableView fx:id="taxTableView" layoutX="238.0" layoutY="641.0" onMouseClicked="#filinTextFieldsTaxes" prefHeight="177.0" prefWidth="366.0">
+        <columns>
+          <TableColumn fx:id="col_taxID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="col_taxValue" prefWidth="75.0" text="Wartość" />
+            <TableColumn fx:id="col_taxDescription" prefWidth="213.0" text="Opis" />
+        </columns>
+      </TableView>
+      <TableView fx:id="customerTableView" layoutX="813.0" layoutY="48.0" onMouseClicked="#fillInTextFieldsCustomers" prefHeight="290.0" prefWidth="715.0">
+        <columns>
+            <TableColumn fx:id="col_customerID" prefWidth="26.0" text="ID" />
+          <TableColumn fx:id="col_firstName" prefWidth="83.0" text="Imie" />
+          <TableColumn fx:id="col_lastName" prefWidth="93.0" text="Nazwisko" />
+            <TableColumn fx:id="col_company" prefWidth="70.0" text="Firma" />
+            <TableColumn fx:id="col_phone" prefWidth="96.0" text="Telefon" />
+            <TableColumn fx:id="col_e_Mail" prefWidth="107.0" text="E-mail" />
+            <TableColumn fx:id="col_customerAddressID" prefWidth="75.0" text="Adres" />
+            <TableColumn fx:id="col_discountID" prefWidth="61.0" text="Zniżka" />
+            <TableColumn fx:id="col_customerPassword" prefWidth="75.0" text="Hasło" />
+        </columns>
+      </TableView>
+      <TextField fx:id="customerIDTextField" layoutX="692.0" layoutY="225.0" visible="false" />
+      <TextArea editable="false" focusTraversable="false" layoutX="633.0" layoutY="638.0" prefHeight="126.0" prefWidth="141.0" text="Nr. Rabatu     Zniżka&#10;1                    10%&#10;2                    20%&#10;3                    30%&#10;4                    50%&#10;5                    80%" />
+      <Label layoutX="609.0" layoutY="17.0" prefHeight="23.0" prefWidth="38.0" text="ID: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="112.0" text="Firma: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="172.0" text="E-mail:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="142.0" prefHeight="30.0" prefWidth="76.0" text="Telefon: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="47.0" text="Imię: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="82.0" text="Nazwisko: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="202.0" text="Adres:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="232.0" text="Zniżka: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="262.0" text="Hasło:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="clientIDTextField" layoutX="639.0" layoutY="20.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerNameTextField" layoutX="657.0" layoutY="50.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerLastNameTextField" layoutX="701.0" layoutY="85.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerCompanyTextField" layoutX="668.0" layoutY="115.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerPhoneTextField" layoutX="685.0" layoutY="145.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerEmailTextField" layoutX="673.0" layoutY="175.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerAddressTextField" layoutX="668.0" layoutY="205.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerDiscountTextField" layoutX="673.0" layoutY="235.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="customerPasswordTextField" layoutX="668.0" layoutY="265.0" prefHeight="25.0" prefWidth="101.0" />
+      <RadioButton fx:id="addCustomerRadioButton" layoutX="631.0" layoutY="298.0" mnemonicParsing="false" onAction="#customerRadioButtonsActions">
+         <toggleGroup>
+            <ToggleGroup fx:id="klienci" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="deleteCustomerRadioButton" layoutX="684.0" layoutY="297.0" mnemonicParsing="false" onAction="#customerRadioButtonsActions" prefHeight="17.0" prefWidth="16.0" toggleGroup="$klienci" />
+      <RadioButton fx:id="updateCustomerRadioButton" layoutX="739.0" layoutY="297.0" mnemonicParsing="false" onAction="#customerRadioButtonsActions" toggleGroup="$klienci" />
+      <Button fx:id="addCustomerButton" disable="true" layoutX="614.0" layoutY="315.0" mnemonicParsing="false" onAction="#addCustomer" text="Dodaj" />
+      <Button fx:id="deleteCustomerButton" disable="true" layoutX="670.0" layoutY="315.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="25.0" prefWidth="43.0" text="Usuń" />
+      <Button fx:id="updateCustomerButton" disable="true" layoutX="718.0" layoutY="315.0" mnemonicParsing="false" onAction="#updateCustomer" text="Nadpisz" />
+      <Label layoutX="609.0" layoutY="352.0" text="ID: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="382.0" text="Imię:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="412.0" text="Nazwisko:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="440.0" text="Stawka:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="468.0" text="Data ur.:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="498.0" text="Zarudniony: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="526.0" text="ID Budynku:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="employee_IDTextField" layoutX="639.0" layoutY="355.0" prefHeight="25.0" prefWidth="88.0" />
+      <TextField fx:id="firstNameTextField" layoutX="661.0" layoutY="385.0" prefHeight="25.0" prefWidth="132.0" />
+      <TextField fx:id="lastNameTextField" layoutX="703.0" layoutY="415.0" prefHeight="25.0" prefWidth="101.0" />
+      <TextField fx:id="salaryTextField" layoutX="679.0" layoutY="443.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="dobTextField" layoutX="683.0" layoutY="471.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="hireDateTextField" layoutX="715.0" layoutY="501.0" prefHeight="25.0" prefWidth="88.0" />
+      <TextField fx:id="employeeBuilding_IDTextField" layoutX="715.0" layoutY="528.0" prefHeight="25.0" prefWidth="88.0" />
+      <Button fx:id="addEmployeeButton" disable="true" layoutX="609.0" layoutY="605.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="25.0" prefWidth="55.0" text="Dodaj" />
+      <Button fx:id="deleteEmployeeButton" disable="true" layoutX="666.0" layoutY="605.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="25.0" prefWidth="55.0" text="Usuń" />
+      <Button fx:id="updateEmployeeButton" disable="true" layoutX="724.0" layoutY="605.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="25.0" prefWidth="60.0" text="Nadpisz" />
+      <TableView fx:id="employeeTableView" layoutX="813.0" layoutY="383.0" onMouseClicked="#fillInTextFieldsEmployees" prefHeight="247.0" prefWidth="715.0">
+         <columns>
+            <TableColumn fx:id="col_employeeID" prefWidth="28.0" text="ID" />
+            <TableColumn fx:id="col_firstName1" prefWidth="76.0" text="Imię" />
+            <TableColumn fx:id="col_lastName1" prefWidth="77.0" text="Nazwisko" />
+            <TableColumn fx:id="col_salary" prefWidth="77.0" text="Stawka" />
+            <TableColumn fx:id="col_dob" prefWidth="92.0" text="Data urodzenia" />
+            <TableColumn fx:id="col_hireDate" prefWidth="109.0" text="Data zatrudnienia" />
+            <TableColumn fx:id="col_buildingID1" prefWidth="81.0" text="ID budynku" />
+            <TableColumn fx:id="col_employeePassword" prefWidth="131.0" text="Hasło" />
+         </columns>
+      </TableView>
+      <Label layoutX="609.0" layoutY="556.0" text="Hasło: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="employeePasswordTextField" layoutX="669.0" layoutY="559.0" prefHeight="25.0" prefWidth="130.0" />
+      <RadioButton fx:id="updateEmployeeRadioButton" layoutX="742.0" layoutY="586.0" mnemonicParsing="false" onAction="#employeesRadioButtonsActions">
+         <toggleGroup>
+            <ToggleGroup fx:id="pracownik" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="deleteEmployeeRadioButton" layoutX="686.0" layoutY="586.0" mnemonicParsing="false" onAction="#employeesRadioButtonsActions" prefHeight="17.0" prefWidth="9.0" toggleGroup="$pracownik" />
+      <RadioButton fx:id="addEmployeeRadioButton" layoutX="629.0" layoutY="586.0" mnemonicParsing="false" onAction="#employeesRadioButtonsActions" toggleGroup="$pracownik" />
+      <Label layoutX="925.0" layoutY="634.0" prefHeight="144.0" prefWidth="491.0" text="Kartoflex" textFill="#9a0b0b">
+         <font>
+            <Font name="AR DELANEY" size="105.0" />
+         </font>
+      </Label>
+      <Label layoutX="814.0" layoutY="353.0" text="Szukaj: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchEmployeeTextField" layoutX="883.0" layoutY="356.0" onKeyTyped="#employeesSearchFilters" prefHeight="25.0" prefWidth="268.0" promptText="ID, Imię, Nazwisko" />
+      <TextField fx:id="searchCustomerTextField" layoutX="883.0" layoutY="21.0" onKeyTyped="#customerSearchFilters" prefHeight="25.0" prefWidth="240.0" promptText="ID, Imię, Nazwisko" />
+      <Label layoutX="814.0" layoutY="18.0" text="Szukaj:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="238.0" layoutY="13.0" text="Szukaj:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchProductTextField" layoutX="308.0" layoutY="16.0" onKeyTyped="#productSearchFilters" prefHeight="25.0" prefWidth="175.0" promptText="ID, nazwa" />
+      <Label layoutX="1130.0" layoutY="17.0" text="Klienci">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1159.0" layoutY="352.0" text="Pracownicy">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

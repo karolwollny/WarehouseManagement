@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="workerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1568.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="workerController">
+   <children>
+      <TabPane layoutX="13.0" layoutY="10.0" prefHeight="786.0" prefWidth="1534.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Produkty">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="productTableView" layoutX="41.0" layoutY="55.0" prefHeight="599.0" prefWidth="903.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="110.0">
+                           <columns>
+                              <TableColumn fx:id="col_productID" prefWidth="70.66670608520508" text="ID" />
+                              <TableColumn fx:id="col_productName" prefWidth="317.0665969848633" text="Nazwa" />
+                              <TableColumn fx:id="col_netPrice" prefWidth="162.13327026367188" text="Cena netto" />
+                              <TableColumn fx:id="col_taxID" prefWidth="100.26654052734375" text="Tax ID" />
+                              <TableColumn fx:id="col_amount" prefWidth="128.53326416015625" text="Ilość" />
+                              <TableColumn fx:id="col_building" prefWidth="152.7999267578125" text="Budynek" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="46.0" layoutY="27.0" text="Szukaj:" AnchorPane.topAnchor="47.0" />
+                        <TextField fx:id="szukajProduktu" layoutX="116.0" layoutY="23.0" onKeyTyped="#productSearchFilters" promptText="ID, Nazwa" AnchorPane.topAnchor="45.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Zamówienia">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="355.0">
+                     <children>
+                        <SplitPane dividerPositions="0.6" layoutX="37.0" layoutY="137.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <TableView fx:id="orderTableView" prefHeight="599.0" prefWidth="903.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                                       <columns>
+                                          <TableColumn fx:id="col_order_id" prefWidth="103.1999921798706" text="ID" />
+                                          <TableColumn fx:id="col_customer_id" prefWidth="178.40003204345703" text="ID Klienta" />
+                                          <TableColumn fx:id="col_employee_id" prefWidth="214.40011596679688" text="ID Pracownika" />
+                                          <TableColumn fx:id="col_status" prefWidth="211.73333740234375" text="Status" />
+                                          <TableColumn fx:id="col_order_date" prefWidth="172.0" text="Data złożenia" />
+                                          <TableColumn fx:id="col_comments" prefWidth="630.3999755859375" text="Komentarze" />
+                                       </columns>
+                                    </TableView>
+                                    <Label prefHeight="18.0" prefWidth="46.0" text="Szukaj:" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="1412.0" AnchorPane.topAnchor="7.0" />
+                                    <TextField fx:id="szukajZamowienia" onKeyTyped="#orderSearchFilters" promptText="ID, Klient" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <Text layoutX="252.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DODAJ ZAMÓWIENIE" textAlignment="CENTER" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="10.0" />
+                                                <Label layoutX="28.0" layoutY="30.0" text="ID:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="30.0" />
+                                                <Label layoutX="28.0" layoutY="62.0" text="ID Klienta:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="60.0" />
+                                                <Label layoutX="28.0" layoutY="100.0" text="ID Pracownika:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="90.0" />
+                                                <Label layoutX="28.0" layoutY="136.0" text="Status:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="120.0" />
+                                                <Label layoutX="28.0" layoutY="171.0" text="Data złożenia:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="150.0" />
+                                                <Label layoutX="28.0" layoutY="200.0" text="Komentarze:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="240.0" />
+                                                <TextField fx:id="order_id_add" layoutX="152.0" layoutY="36.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="30.0" />
+                                                <TextField fx:id="customer_id_add" layoutX="162.0" layoutY="46.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="60.0" />
+                                                <TextField fx:id="employee_id_add" layoutX="162.0" layoutY="46.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="90.0" />
+                                                <TextField fx:id="status_add" layoutX="162.0" layoutY="46.0" promptText="PREPARATION | WAY | DELIVERED | MISSING" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="120.0" />
+                                                <TextField fx:id="order_date_add" layoutX="162.0" layoutY="46.0" promptText="RRRR-MM-DD" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="150.0" />
+                                                <TextField fx:id="comments_add" layoutX="162.0" layoutY="46.0" promptText="TEKST" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="240.0" />
+                                                <Button fx:id="addOrderButton" layoutX="558.0" layoutY="116.0" mnemonicParsing="false" onAction="#addNewOrder" text="DODAJ" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="525.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="100.0" />
+                                                <Label layoutX="29.0" layoutY="178.0" text="ID Produktu: " AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="180.0" />
+                                                <Label layoutX="29.0" layoutY="200.0" text="Ilość:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="210.0" />
+                                                <TextField fx:id="product_id_add" layoutX="175.0" layoutY="185.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="180.0" />
+                                                <TextField fx:id="ammount_add" layoutX="175.0" layoutY="215.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="210.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="763.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ZMODYFIKUJ ZAMÓWIENIE" textAlignment="CENTER" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="10.0" />
+                                                <Label text="ID Klienta:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="60.0" />
+                                                <Label text="ID Pracownika:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="90.0" />
+                                                <Label text="Status:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="120.0" />
+                                                <Label text="Data złożenia:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="150.0" />
+                                                <Label text="Komentarze:" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="240.0" />
+                                                <TextField fx:id="customer_id_update" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="60.0" />
+                                                <TextField fx:id="employee_id_update" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="90.0" />
+                                                <TextField fx:id="status_update" promptText="PREPARATION | WAY | DELIVERED | MISSING" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="120.0" />
+                                                <TextField fx:id="order_date_update" promptText="RRRR-MM-DD" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="150.0" />
+                                                <TextField fx:id="comments_update" promptText="TEKST" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="240.0" />
+                                                <Button fx:id="updateOrderButton" mnemonicParsing="false" onAction="#updateOrder" text="ZMODYFIKUJ" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0" />
+                                                <Label text="ID modyfikowanego zamówienia: " AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="30.0" />
+                                                <TextField fx:id="order_id_update" layoutX="248.0" layoutY="36.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.topAnchor="30.0" />
+                                                <TextField fx:id="product_id_update" layoutX="174.0" layoutY="185.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="180.0" />
+                                                <TextField fx:id="ammount_update" layoutX="186.0" layoutY="215.0" promptText="np 1, 2, 3... MAX 10000" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="210.0" />
+                                                <Label layoutX="27.0" layoutY="171.0" text="ID Produktu:" AnchorPane.topAnchor="180.0" />
+                                                <Label layoutX="27.0" layoutY="201.0" text="Ilość:" AnchorPane.topAnchor="210.0" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Faktury i Klienci">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="30.0" layoutY="5.0" prefHeight="35.0" prefWidth="59.0" text="Szukaj:" AnchorPane.bottomAnchor="716.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="1445.0" AnchorPane.topAnchor="5.0" />
+                        <TextField fx:id="szukajFaktury" onKeyTyped="#fakturaSearchFilters" promptText="Numer, Nazwa produktu" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="1250.0" AnchorPane.topAnchor="7.0" />
+                        <TableView fx:id="fakturaTableView" prefHeight="355.0" prefWidth="1530.0" AnchorPane.bottomAnchor="400.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                           <columns>
+                              <TableColumn fx:id="col_numer" prefWidth="57.333370208740234" text="Numer" />
+                              <TableColumn fx:id="col_imie" prefWidth="182.13331604003906" text="Imie i nazwisko zamawiającego" />
+                              <TableColumn fx:id="col_firma" prefWidth="86.4000244140625" text="Firma" />
+                              <TableColumn fx:id="col_adres_zam" minWidth="4.7999267578125" prefWidth="139.199951171875" text="Adres zamawiajacego" />
+                              <TableColumn fx:id="co_data" prefWidth="76.7999267578125" text="Data" />
+                              <TableColumn fx:id="col_zam_przyj" prefWidth="140.7999267578125" text="Zamówienie przyjął/eła" />
+                              <TableColumn fx:id="col_nazwa" prefWidth="152.53326416015625" text="Nazwa produktu" />
+                              <TableColumn fx:id="col_ilosc" prefWidth="67.2000732421875" text="Ilość" />
+                              <TableColumn fx:id="col_cena_za_sztuke" prefWidth="94.933349609375" text="Cena za sztukę" />
+                              <TableColumn fx:id="col_cena_netto" prefWidth="141.8665771484375" text="Cena netto zamówienia" />
+                              <TableColumn fx:id="col_cena_brutto" prefWidth="148.800048828125" text="Cena brutto zamówienia" />
+                              <TableColumn fx:id="col_vat" prefWidth="83.9998779296875" text="VAT" />
+                              <TableColumn fx:id="col_komentarze" prefWidth="146.4000244140625" text="Komentarze" />
+                           </columns>
+                        </TableView>
+                        <TableView fx:id="customerTableView" layoutX="35.0" layoutY="505.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="425.0">
+                          <columns>
+                            <TableColumn fx:id="col_customerID" prefWidth="48.53335952758789" text="ID" />
+                            <TableColumn fx:id="col_firstName" prefWidth="155.4667205810547" text="Imię" />
+                              <TableColumn fx:id="col_lastName" prefWidth="160.26666259765625" text="Nazwisko" />
+                              <TableColumn fx:id="col_company" prefWidth="306.40008544921875" text="Nazwa Firmy" />
+                              <TableColumn fx:id="col_phone" prefWidth="142.66656494140625" text="Numer Telefonu" />
+                              <TableColumn fx:id="col_e_Mail" prefWidth="225.33343505859375" text="Adres Email" />
+                              <TableColumn fx:id="col_customerAddressID" prefWidth="364.79998779296875" text="Adres" />
+                              <TableColumn fx:id="col_discountID" prefWidth="110.13348388671875" text="Wartość zniżki" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="46.0" layoutY="381.0" text="Klienci: " />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="closeButton" layoutX="1501.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="35.0" prefWidth="30.0" text="x" />
+      <Button layoutX="1450.0" layoutY="800.0" mnemonicParsing="false" onAction="#previousPane" text="Previous" />
+   </children>
+</Pane>
